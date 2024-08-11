@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Norican&display=swap');
 #container {
   text-align: center;
 
@@ -25,3 +26,26 @@
 #container a {
   text-decoration: none;
 }
+
+
+.rotate-center{animation:rotate-center 0.4s} @keyframes rotate-center{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+
+ion-card {
+  --background:#ffffff;
+  --color: #000000;
+}
+
+ion-title {
+  --color: #080808;
+  position: relative;
+	display: flex;
+	align-items: center;
+	font-size: 4rem;
+}
+
+ion-card-subtitle {
+  --color: #000000;
+}
+
+
