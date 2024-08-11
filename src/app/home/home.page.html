@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="ion-toolbar">
       <h1>Todo List</h1>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="rotate-center">
-  <ion-card>
+  <ion-card >
     <form [formGroup]="taskForm" (ngSubmit)="addTask()">
       <ion-grid>
         <ion-row>
@@ -58,7 +58,7 @@
             <ion-button
               [disabled]="taskForm.invalid"
               type="submit"
-              color="success"
+              color="ligth"
               >
             <ion-icon name="add-circle"></ion-icon>
               Add Task</ion-button
@@ -67,7 +67,7 @@
         </ion-row>
       </ion-grid>
 
-      <ion-card id="new-task-card">
+      <ion-card class="ion-tasks" id="new-task-card">
         <ion-card-header>
           <ion-card-title>Tasks</ion-card-title>
         </ion-card-header>
