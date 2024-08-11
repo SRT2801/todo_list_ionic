@@ -12,7 +12,9 @@
       <ion-grid>
         <ion-row>
           <ion-col>
-            <ion-input label-placement="floating" fill="solid"
+            <ion-input
+              label-placement="floating"
+              fill="solid"
               formControlName="title"
               placeholder="type a title"
               label="Title: "
@@ -32,7 +34,9 @@
 
         <ion-row>
           <ion-col>
-            <ion-input label-placement="floating" fill="solid"
+            <ion-input
+              label-placement="floating"
+              fill="solid"
               formControlName="description"
               placeholder="type a description"
               label="Description: "
@@ -55,18 +59,20 @@
               [disabled]="taskForm.invalid"
               type="submit"
               color="success"
-              >ADD</ion-button
+              >
+            <ion-icon name="add-circle"></ion-icon>
+              Add Task</ion-button
             >
           </ion-col>
         </ion-row>
       </ion-grid>
 
-      <ion-card>
+      <ion-card id="new-task-card">
         <ion-card-header>
           <ion-card-title>Tasks</ion-card-title>
         </ion-card-header>
-        <ion-card-content>
-          <ion-list class="card">
+        <ion-card-content >
+          <ion-list  *ngIf="tasks.length> 0"  class="card">
             <ion-item *ngFor="let task of tasks">
               <ion-thumbnail slot="start">
                 <img
@@ -87,8 +93,12 @@
                 [checked]="task.done"
                 slot="end"
               ></ion-toggle>
-              <ion-icon name="trash" slot="end" (click)="deleteTask(task.id)" color="danger">
-
+              <ion-icon
+                name="trash"
+                slot="end"
+                (click)="deleteTask(task.id)"
+                color="danger"
+              >
               </ion-icon>
 
             </ion-item>

@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { ButtonComponent } from '../button/button.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +17,6 @@ import { ButtonComponent } from '../button/button.component';
     HomePageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [HomePage, ButtonComponent]
+  declarations: [HomePage, ButtonComponent,]
 })
 export class HomePageModule {}

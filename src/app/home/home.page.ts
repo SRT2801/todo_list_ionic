@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AlertController } from '@ionic/angular';
 
 interface ITask {
   title: string;
   description: string;
   done: boolean;
   id: number;
-
 }
 
 @Component({
@@ -15,6 +15,7 @@ interface ITask {
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  [x: string]: any;
   public title!: FormControl;
   public description!: FormControl;
   public done!: FormControl;
@@ -23,8 +24,7 @@ export class HomePage {
 
   public tasks: ITask[] = [];
 
-
-  constructor() {
+  constructor(private alertController: AlertController) {
     this.initForm();
   }
 
@@ -33,21 +33,55 @@ export class HomePage {
     this.tasks.push({ ...this.taskForm.value, done: false }); //
     console.log(this.tasks);
     this.taskForm.reset();
+    const newTaskCard = document.getElementById('new-task-card');
+    newTaskCard?.classList.add('animate');
 
+    setTimeout(() => {
+      newTaskCard?.classList.remove('animate');
+    }, 500);
   }
 
-  updateTaskStatus(task: { done: any; }, event: { detail: { checked: any; }; }) {
+  updateTaskStatus(task: { done: any }, event: { detail: { checked: any } }) {
     task.done = event.detail.checked;
-
   }
 
   deleteTask(index: number) {
-    this.tasks.splice(index, 1);
+    this.presentAlert(index);
+  }
+
+  async presentAlert(index: number) {
+    const alert = await this.alertController.create({
+      header: 'Delete Task',
+      message: 'Are you sure you want to delete this task?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel');
+          },
+        },
+        {
+          text: 'Delete',
+          handler: () => {
+            this.tasks.splice(index, 1);
+          },
+        },
+      ],
+    });
+
+    await alert.present();
   }
 
   private initForm() {
-    this.title = new FormControl('', [Validators.required, Validators.minLength(3)]);
-    this.description = new FormControl('', [Validators.required, Validators.minLength(10)]);
+    this.title = new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+    ]);
+    this.description = new FormControl('', [
+      Validators.required,
+      Validators.minLength(10),
+    ]);
     this.done = new FormControl(false, []);
 
     this.taskForm = new FormGroup({
@@ -55,7 +89,5 @@ export class HomePage {
       description: this.description,
       done: this.done,
     });
-
-
   }
 }

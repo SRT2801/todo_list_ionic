@@ -17,7 +17,7 @@ export class ButtonComponent  implements OnInit {
 
 
   }
-  
+
   doClick(){
     console.log("added successfully!!");
   }

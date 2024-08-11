@@ -1,47 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Norican&display=swap');
-#container {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&family=Norican&display=swap");
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.rotate-center {
+  animation: rotate-center 0.4s;
 }
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+@keyframes rotate-center {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
-
-.rotate-center{animation:rotate-center 0.4s} @keyframes rotate-center{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-
 
 ion-card {
-  --background:#ffffff;
+  --background: #ffffff;
   --color: #000000;
 }
 
 ion-title {
   --color: #080808;
   position: relative;
-	display: flex;
-	align-items: center;
-	font-size: 4rem;
+  display: flex;
+  align-items: center;
+  font-size: 4rem;
 }
 
 ion-card-subtitle {
@@ -49,3 +30,19 @@ ion-card-subtitle {
 }
 
 
+@keyframes addTaskAnimation {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#new-task-card {
+  &.animate {
+    animation: addTaskAnimation 0.5s ease-in-out;
+  }
+}
