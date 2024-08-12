@@ -1,13 +1,13 @@
-<ion-header>
+<ion-header >
   <ion-toolbar>
-    <ion-title class="ion-toolbar">
+    <ion-title >
       <h1>Todo List</h1>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="rotate-center">
-  <ion-card >
+  <ion-card>
     <form [formGroup]="taskForm" (ngSubmit)="addTask()">
       <ion-grid>
         <ion-row>
@@ -59,8 +59,8 @@
               [disabled]="taskForm.invalid"
               type="submit"
               color="ligth"
-              >
-            <ion-icon name="add-circle"></ion-icon>
+            >
+              <ion-icon name="add-circle"></ion-icon>
               Add Task</ion-button
             >
           </ion-col>
@@ -71,14 +71,14 @@
         <ion-card-header>
           <ion-card-title>Tasks</ion-card-title>
         </ion-card-header>
-        <ion-card-content >
-          <ion-list  *ngIf="tasks.length> 0"  class="card">
+        <ion-card-content>
+          <ion-list *ngIf="tasks.length> 0" class="card">
             <ion-item *ngFor="let task of tasks">
               <ion-thumbnail slot="start">
                 <img
                   width="50"
                   height="50"
-                  src="https://cdn.icon-icons.com/icons2/3252/PNG/512/tasks_app_regular_icon_204842.png"
+                  src="../../assets/icon/icons8-lista.gif"
                   alt="todo-list--v1"
                 />
               </ion-thumbnail>
@@ -100,7 +100,6 @@
                 color="danger"
               >
               </ion-icon>
-
             </ion-item>
           </ion-list>
         </ion-card-content>

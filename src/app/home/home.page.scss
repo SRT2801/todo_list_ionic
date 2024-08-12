@@ -17,7 +17,6 @@ ion-card {
   --color: #000000;
   background-color: #209be2;
   border-radius: 20px 20px 20px 20px;
-
 }
 
 .ion-tasks {
@@ -26,17 +25,17 @@ ion-card {
   --background: #ffffff;
 }
 
-
-
 ion-title {
-  --color: #ffffff;
-  background-color: #209be2;
-  flex-grow: 1;
+    background-color: #209be2;
+
+  font-size: 24px;
+
+  color: #ffffff;
+
 }
 
 ion-card-subtitle {
   --color: #000000;
-
 }
 
 @keyframes addTaskAnimation {
@@ -55,5 +54,4 @@ ion-card-subtitle {
     animation: addTaskAnimation 0.5s ease-in-out;
   }
 }
-
 
